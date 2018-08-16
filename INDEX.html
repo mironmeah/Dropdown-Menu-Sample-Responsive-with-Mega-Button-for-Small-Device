@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dropdown Menu</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            /* Tutorial Reference https://www.youtube.com/watch?v=rmEntwdfZlc&t=155s */            
+            /* Source Code (Right sidebar) www.webscript.info */
+            
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background: #eee;
+                font-size: 16px;
+                font-family: sans-serif, arial;
+            }
+            header{
+                width: 1000px;
+                height: 120px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .logo{
+                position: absolute;
+                left:20px;
+                top: 30px;
+            }
+            .nav{
+                width: 1000px;
+                height: 60px;
+                margin: 0 auto;
+                border-radius: 25px;
+            }
+            ul li{
+                list-style: none;
+                width: 200px;
+                line-height: 60px;
+                position: relative;
+                background: #222;
+                box-shadow: 0px 2px 5px 0px grey;
+                text-align: center;
+                float:left;
+                background: linear-gradient(darkred 20%, black 80%);
+            }
+            ul li ul{
+                position: absolute;
+            }
+            .nav > ul > li:nth-of-type(1){
+                border-radius: 15px 0px 0px 15px;
+            }
+            .nav > ul > li:nth-of-type(5){
+                border-radius: 0px 15px 15px 0px;
+            }
+            ul li a{
+                color:#fff;
+                width:200px;
+                height: 58px;
+                display: inline-block;
+                text-decoration: none;
+            }
+            ul li a:hover{
+                font-weight: bold;
+                border-bottom: 2px solid #fff;
+            }
+            ul li ul{
+                display: none;
+            }
+            .nav ul li:hover ul{
+                display: block;
+            }
+            .fa{
+                margin-left: 5px;
+            }
+            .fa-list.modify{
+                display: none;
+                font-size: 35px;
+                position: absolute;
+                right: 30px;
+                top: 60px;
+                cursor: pointer;
+            }
+            .container{
+                width: 1000px;
+                height:200px;
+                margin: 0 auto;
+                padding: 20px 20px;
+                    
+            }
+            @media screen and (max-width: 480px){
+                header{
+                    width: 100%;                    
+                }
+                .nav{
+                    display: none;
+                    width: 100%;
+                    height: auto;                                    
+                }
+                ul li{                
+                    width: 100%;                           
+                    float:none;                
+                }
+                ul li a{
+                    width: 100%;
+                    display: block;
+                }
+                ul li ul{
+                    position: static;
+                }
+                ul li ul li a{
+                    background: #222;
+                }
+                .fa-list.modify{
+                    display: block;
+                }
+                .container{
+                    width: 100%;
+                    height: auto;                    
+                }
+                body{
+                    overflow-x:hidden;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <header>
+            <div class="logo"><img src="logo.png" width="100" height="100" /></div>
+            <div class="menu"><span class="fa fa-list modify"></span></div>
+        </header>
+        <nav class="nav">
+            <ul>
+                <li><a href="#"><span class="fa fa-home"></span>Home</a></li>
+                <li><a href="#"><span class="fa fa-code"></span>Code</a>
+                    <ul>
+                        <li><a href="#">Javascript</a></li>
+                        <li><a href="#">HTML 5</a></li>
+                        <li><a href="#">CSS 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="fa fa-list"></span>Projects</a></li>
+                <li><a href="#"><span class="fa fa-file-video-o"></span>Videos</a></li>
+                <li><a href="#"><span class="fa fa-info"></span>About</a></li>
+            </ul>            
+        </nav>
+        <section class="container">
+            <h1>Welcome to RK Tutorial</h1>
+            <p>Hello, Everyone How are you???</p>
+            
+        </section>
+    </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var menu = false;
+    $(".fa-list.modify").click(function(){
+        if(menu == false){
+            $(".nav").fadeIn();
+            menu = true;
+        }else{
+            $(".nav").fadeOut();
+            menu = false;
+        }
+    });
+
+</script>
